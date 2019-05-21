@@ -17,3 +17,11 @@
 登录
 
 ![](screen/login.png)
+
+主页
+
+![](screen/home.png)
+
+公告
+
+![](screen/notice.png)
