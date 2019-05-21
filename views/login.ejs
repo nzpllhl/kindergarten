@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>小太阳幼儿园管理系统入口</title>
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header>
+      <div class="logo_title">
+        <a href="" id="logo"></a> <span>小太阳幼儿园管理系统</span>
+      </div>
+    </header>
+    <div class="concent clear">
+      <div class="login_note">
+        <h3>温馨提示：</h3>
+        <h5>关于浏览器</h5>
+        <p>
+          本系统只支持IE9及以上版本，IE浏览器<span style="color:red">请勿</span>使用<span style="color:red">“兼容模式”</span>；
+        </p>
+        <p>
+          使用QQ、360浏览器的用户，请启用<span style="color:red">“极速模式”</span>。
+        </p>
+        <h5>测试账号</h5>
+        <p>
+          账号1：admin  密码：admin
+        </p>
+        <p>
+          账号2：director 密码：director
+        </p>
+        <p>
+          账号2：teacher 密码：teacher
+        </p>
+        <p class="paragA">
+          <a class="link" href="/userhelper.zip" download="用户操作手册.zip">点击下载用户操作手册</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a class="link" href="/common.doc" download="学前系统常见问题_V1.1.doc">管理系统常见问题</a>
+        </p>
+      </div>
+      <div id="login_box">
+        <div class="login_box_title">登录&nbsp;</div>
+        <form id="login-form">
+          <div class="input-group">
+            <div class="login-txt">帐号</div>
+            <input type="text" class="login_input" id="account"/>
+            <div class="logIco logIcoCacct">&nbsp;</div>
+          </div>
+          <div class="input-group" id="rowPwd">
+            <div class="login-txt">密码</div>
+            <input type="password" class="login_input" id="password"/>
+            <div class="logIco logIcoPwd">&nbsp;</div>
+          </div>
+          <!-- <div class="input-group input-group-active" id="rowYzm" style="display:none">
+            <div class="login-txt">验证码</div>
+            <input id="log-yzm" name="log-yzm" type="text" autocomplete="off" maxlength="4" class="login_input" style="width:55%" />
+            <div class="code" id="data_code" data-value="" style="color: rgb(244, 67, 54);"></div>
+          </div> -->
+          <div id="error" class="worn">请输入帐号</div>
+          <div id="login-button" class="loginBtn">
+            登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录
+          </div>
+          
+        </form>
+        <div class="bottom">
+          <a href="javascript:void(0);" id="findpwd_id" onclick="fn_findpwd()" class="link">忘了密码？</a>
+          <span class="dotted" id="sign_id">|</span>
+          <a href="javascript:void(0);" onclick="fn_jc_regaccount()" class="link"></a>
+          <a href="javascript:void(0);" id="findphone_id" onclick="fn_findphone()" class="link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/login.js"></script>
+  <script>
+    
+  </script>
+</body>
+
+</html>

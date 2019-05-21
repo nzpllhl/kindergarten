@@ -1,0 +1,90 @@
+<%- include header %>
+<div class="ch-container">
+    <div class="row">
+
+        <!-- left menu starts -->
+        <%- include left %>
+        <!--/span-->
+        <!-- left menu ends -->
+
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+
+                <p>You need to have JavaScript enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+            <div>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/home">主页</a>
+                    </li>
+                    <li>
+                        <a href="/notice">公告列表</a>
+                    </li>
+                    <li>
+                        <a href="#">发布公告</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-edit"></i> 发布公告</h2>
+
+                        </div>
+                        <div class="box-content">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputTitle">公告标题</label>
+                                    <input type="text" class="form-control" id="inputTitle" placeholder="标题">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">公告内容</label>
+                                    <div id="nContent"></div>
+                                    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+                                    <script>
+                                        var E = window.wangEditor
+                                        var editor = new E('#nContent')
+                                        editor.create()
+                                    </script>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="button" class="btn btn-primary" id="submit">提交</button>
+                                    <button type="button" class="btn btn-default"
+                                        onclick="javascript :history.go(-1);">取消</button>
+                                </div>
+                            </form>
+                            <script>
+                             $('#submit').click(function () {
+                                            var nTitle = $('#inputTitle').val();
+                                            var nContent = editor.txt.html();
+                                            $.post('/addnotice', {nTitle,nContent});
+                                        })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+
+            </div>
+            <!-- content ends -->
+        </div>
+        <!--/#content.col-md-0-->
+    </div>
+    <!--/fluid-row-->
+
+
+</div>
+<!--/.fluid-container-->
+
+<%- include footer %>

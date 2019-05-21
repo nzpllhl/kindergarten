@@ -1,0 +1,90 @@
+
+<%- include header %>
+<div class="ch-container">
+    <div class="row">
+
+        <!-- left menu starts -->
+        <%- include left %>
+        <!--/span-->
+        <!-- left menu ends -->
+
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+
+                <p>You need to have JavaScript enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+      
+            <div>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/home">主页</a>
+                    </li>
+                    <li>
+                        <a href="#">权限管理</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-user"></i> 角色列表</h2>
+            
+            
+                        </div>
+                       
+                        <div class="box-content">
+                            <table class="table table-bordered responsive">
+                                <thead>
+                                <tr>
+                                    <th>角色名称</th>
+                                    <th>角色权限</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <% rolelist.forEach(function(value){ %>
+                                        <tr>
+                                            <td><%= value['name'] %></td>
+                                            <td><%= value['auths'] %></td>
+                                            <td>
+                                                <button type="button" class="btn btn-info" onclick="window.location.href='/editRole?id=<%=value['id']%>';return false;">
+                                                    <span class="glyphicon glyphicon-pencil"></span> 编辑
+                                                </button>
+                                                <button type="button" class="btn btn-warning" onclick="window.location.href='/delRole?id=<%=value['id']%>';return false;">
+                                                    <span class="glyphicon glyphicon-trash"></span> 删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            <ul class="pagination">
+                                <%- include page %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+            
+            </div>
+
+            <!-- content ends -->
+        </div>
+        <!--/#content.col-md-0-->
+    </div>
+    <!--/fluid-row-->
+
+
+</div>
+<!--/.fluid-container-->
+
+<%- include footer %>

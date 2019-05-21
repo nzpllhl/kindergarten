@@ -1,0 +1,147 @@
+
+<%- include header %>
+    <div class="ch-container">
+        <div class="row">
+
+            <!-- left menu starts -->
+            <%- include left %>
+            <!--/span-->
+            <!-- left menu ends -->
+
+            <noscript>
+                <div class="alert alert-block col-md-12">
+                    <h4 class="alert-heading">Warning!</h4>
+
+                    <p>You need to have JavaScript enabled to use this site.</p>
+                </div>
+            </noscript>
+
+            <div id="content" class="col-lg-10 col-sm-10">
+                <!-- content starts -->
+          
+                <div>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/home">主页</a>
+                        </li>
+                        <li>
+                            <a href="#">用户管理</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2><i class="glyphicon glyphicon-user"></i> 用户列表</h2>
+                
+                
+                            </div>
+                            
+                            <div class="box-content">
+                                    <div class="box-content">
+                                            <a class="btn btn-primary btn-setting" href="#"><i class="glyphicon glyphicon-plus icon-white"></i> 添加用户</a>
+                                            <form class="navbar-search pull-right">
+                                                    <input placeholder="Search" class="search-query form-control col-md-10" name="query" type="text">
+                                            </form>
+                                    </div>
+                                <table class="table table-bordered responsive">
+                                    <thead>
+                                    <tr>
+                                        <th>用户名</th>
+                                        <th>角色</th>
+                                        <th>手机号</th>
+                                        <th>最后登录时间</th>
+                                        <th>最后登录IP</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% smslist.forEach(function(value){ %>   
+                                    <tr>
+                                        <td><%= value['user'] %></td>
+                                        <td><%= value['role'] %></td>
+                                        <td><%= value['phoneno'] %></td>
+                                        <td><%= value['lastlogintime'] %></td>
+                                        <td><%= value['lastloginip'] %></td>
+                                        <td class="center">
+                                            <a class="btn btn-info" href="#" onclick="window.location.href='/editUser?id=<%=value['id']%>'">
+                                                <i class="glyphicon glyphicon-edit icon-white"></i>
+                                                编辑
+                                            </a>
+                                            <a class="btn btn-danger" href="#" onclick="window.location.href='/delUser?id=<%=value['id']%>'">
+                                                <i class="glyphicon glyphicon-trash icon-white"></i>
+                                                删除
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center">
+                                <ul class="pagination">
+                                    <%- include page %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                
+                </div>
+
+                <!-- content ends -->
+            </div>
+            <!--/#content.col-md-0-->
+        </div>
+        <!--/fluid-row-->
+
+
+    </div>
+    <!--/.fluid-container-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3>新增用户</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                                <label for="exampleInputEmail1">选择角色</label>
+                                <div class="controls">
+                                    <select name="roleid" class="form-control">
+                                        <option value="">请选择</option>
+                                        <% rolelist.forEach(function(value){ %>
+                                        <option value="<%= value['id'] %>"><%= value['name'] %></option>
+                                        <% }) %>
+                                    </select>
+                                    </div>
+                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">用户名</label>
+                        <input type="text" class="form-control" id="InputUser">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" id="InputPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">手机号</label>
+                        <input type="text" class="form-control" id="InputTel">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input type="text" class="form-control" id="InputEmail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
+                    <a href="#" class="btn btn-primary" data-dismiss="modal">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include footer %>

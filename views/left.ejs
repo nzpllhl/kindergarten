@@ -1,0 +1,49 @@
+<div class="col-sm-2 col-lg-2">
+        <div class="sidebar-nav">
+            <div class="nav-canvas">
+                <div class="nav-sm nav nav-stacked">
+
+                </div>
+                <ul class="nav nav-pills nav-stacked main-menu" id="nav">
+                    <li class="nav-header disabled">通用功能</li>
+                    <li><a class="ajax-link" href="/home"><i class="glyphicon glyphicon-home"></i><span>
+                                学园总览</span></a>
+                    </li>
+                    <% if(locals.auths.indexOf("业务管理") >= 0){ %>
+                    <li class="nav-header">业务管理</li>
+                    <li><a class="ajax-link" href="/classes"><i class="glyphicon glyphicon-th"></i><span>
+                                班级管理</span></a></li>
+                    <li><a class="ajax-link" href="/students"><i class="glyphicon glyphicon-user"></i><span>
+                                学生管理</span></a>
+                    </li>
+                    <li><a class="ajax-link" href="/worker"><i class="glyphicon glyphicon-briefcase"></i><span>
+                                教师管理</span></a>
+                    </li>
+                  
+                    <% } %>
+                    <% if(locals.auths.indexOf("用户管理") >= 0){ %>
+                    <li class="nav-header">用户管理</li>
+                    <li><a class="ajax-link" href="/user"><i class="glyphicon glyphicon-cog"></i><span>
+                                账号管理</span></a>
+                    </li>
+                    <li><a class="ajax-link" href="/role"><i class="glyphicon glyphicon-lock"></i><span>
+                                权限管理</span></a>
+                    </li>
+                    <% } %>
+                    <% if(locals.auths.indexOf("信息中心") >= 0){ %>
+                    <li class="nav-header">信息中心</li>
+
+
+                    <li><a class="ajax-link" href="/photowall"><i class="glyphicon glyphicon-picture"></i><span>
+                                学园风采</span></a>
+                    </li>
+                    <li><a class="ajax-link" href="/notice"><i class="glyphicon glyphicon-volume-up"></i><span>
+                                通知公告</span></a></li>
+                    <% } %>
+                    <li class="nav-header">&nbsp;-end-</li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
